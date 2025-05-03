@@ -1,6 +1,9 @@
 from crewai import Task
 
+#This class defines the specific tasks that the agents will perform
 class PitchCoachTasks:
+
+    #Method performs Structure Analysis: Evaluates if the pitch has all essential components
     @staticmethod
     def create_structure_analysis_task(agent, pitch_content):
         return Task(
@@ -17,6 +20,7 @@ class PitchCoachTasks:
             expected_output="A detailed analysis of the pitch structure with specific recommendations for improvement"
         )
     
+    #Method performs Messaging Analysis: Focuses on clarity and impact
     @staticmethod
     def create_messaging_analysis_task(agent, pitch_content):
         return Task(
@@ -32,7 +36,7 @@ class PitchCoachTasks:
             agent=agent,
             expected_output="An analysis of pitch clarity and persuasiveness with specific wording improvement suggestions"
         )
-    
+    #Method performs Q&A Simulation: Creates realistic investor questions based on industry and funding stage
     @staticmethod
     def create_qa_simulation_task(agent, pitch_content, industry, funding_stage):
         return Task(

@@ -6,6 +6,7 @@ from langchain_openai import ChatOpenAI
 # Load environment variables
 load_dotenv()
 
+#This class defines the three specialized AI agents that power the coaching system
 class PitchCoachAgents:
     def __init__(self):
         self.llm = ChatOpenAI(temperature=0.7, api_key=os.getenv("OPENAI_API_KEY"))

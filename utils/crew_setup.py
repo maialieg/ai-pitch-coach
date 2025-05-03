@@ -2,6 +2,7 @@ from crewai import Crew
 from agents.pitch_coach import PitchCoachAgents
 from utils.tasks import PitchCoachTasks
 
+#This class ties together the agent definitions and task definitions using CrewAI
 class PitchCoachCrew:
     def __init__(self):
         self.agents = PitchCoachAgents()

@@ -2,6 +2,8 @@ from datetime import datetime
 import json
 import os
 
+#This class manages the persistence of pitch feedback history
+#Tracks pitch iterations over time, allowing for progress tracking
 class FeedbackTracker:
     def __init__(self, user_id="default"):
         self.user_id = user_id

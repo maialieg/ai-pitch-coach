@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+#This file manages the conversational coaching flow:
 class PitchCoachFlow:
     def __init__(self):
         self.llm = ChatOpenAI(temperature=0.7, api_key=os.getenv("OPENAI_API_KEY"))
