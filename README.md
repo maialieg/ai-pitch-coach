@@ -2,8 +2,6 @@
 
 An AI-powered coach that helps founders structure, refine, and practice their startup pitches.
 
-
-
 ## Overview
 
 AI Pitch Coach is a comprehensive tool designed to assist startup founders in developing compelling pitches. Using advanced AI agents, the application provides step-by-step guidance through a conversational interface, helping users articulate their value proposition, refine their messaging, and prepare for investor questions.
@@ -159,6 +157,53 @@ curl -X POST http://localhost:8000/start_session \
   -d '{"user_id": "api_user"}'
 ```
 
+## Running Tests
+
+The project includes a comprehensive test suite to ensure all components work correctly. To run the tests:
+
+### Run All Tests
+
+```bash
+python run_tests.py
+```
+
+This will execute all test cases and provide a detailed report.
+
+### Run Specific Test Modules
+
+You can also run specific test modules individually:
+
+```bash
+# Test the API endpoints
+python -m tests.test_api
+
+# Test the coaching flow
+python -m tests.test_coaching_flow
+
+# Test the feedback tracker
+python -m tests.test_feedback_tracker
+
+# Test the web interface
+python -m tests.test_web_interface
+```
+
+### Test Coverage
+
+To generate a test coverage report:
+
+```bash
+coverage run run_tests.py
+coverage report
+```
+
+For a detailed HTML report:
+
+```bash
+coverage html
+```
+
+Then open `htmlcov/index.html` in your browser.
+
 ## API Endpoints
 
 The FastAPI backend provides the following endpoints:
@@ -186,8 +231,11 @@ The FastAPI backend provides the following endpoints:
 │       │   └── styles.css # Main CSS
 │       └── js/          # JavaScript
 │           └── script.js # Client-side logic
-├── agents/              # AI agent definitions
-│   └── pitch_coach.py   # Pitch coach agents
+├── tests/               # Test suite
+│   ├── test_api.py      # API endpoint tests
+│   ├── test_coaching_flow.py # Coaching flow tests
+│   ├── test_feedback_tracker.py # Feedback tracker tests
+│   └── test_web_interface.py # Web UI tests
 ├── utils/               # Utility modules
 │   ├── crew_setup.py    # CrewAI configuration
 │   ├── coaching_flow.py # Manages conversation flow and pitch development
@@ -195,6 +243,7 @@ The FastAPI backend provides the following endpoints:
 │   └── tasks.py         # Defines tasks for different coaching scenarios
 ├── requirements.txt     # Project dependencies
 ├── run_api.py           # Script to run the API server
+├── run_tests.py         # Script to run all tests
 ├── coach_cli.py         # Command-line interface for the coach
 └── conversational_cli.py # Conversational CLI interface
 ```
@@ -245,6 +294,7 @@ The application provides both a conversational interface (for guided coaching) a
 - **Authentication errors**: Check that your OpenAI API key is correctly set in the `.env` file
 - **Import errors**: Verify that your virtual environment is activated and all dependencies are installed
 - **Connection refused errors**: Ensure the API server is running on port 8000 and not blocked by a firewall
+- **Test failures**: If tests fail, check that you have all the required packages installed, including testing packages (pytest, coverage)
 
 ## Best Practices
 
