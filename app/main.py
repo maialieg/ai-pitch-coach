@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from utils.coaching_flow import PitchCoachFlow
 from utils.crew_setup import PitchCoachCrew
@@ -34,6 +35,12 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 @app.get("/ui")
 async def get_ui():
     return FileResponse("app/static/index.html")
+
+#dding a root redirect so that when someone visits the root URL (/), they're redirected to /ui:
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/ui")
+
 
 # Store active coaching sessions
 active_sessions = {}
