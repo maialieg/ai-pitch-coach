@@ -65,8 +65,10 @@ class TestPitchCoachAPI(unittest.TestCase):
         """Test the root endpoint"""
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {"message": "Welcome to AI Pitch Coach API"})
-    
+        # Check if content is HTML
+        self.assertTrue(response.content.startswith(b"<!DOCTYPE html>") or 
+                   b"<html" in response.content)
+        
     def test_start_session(self):
         """Test starting a coaching session"""
         response = self.client.post(

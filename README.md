@@ -163,8 +163,9 @@ The project includes a comprehensive test suite to ensure all components work co
 
 ### Run All Tests
 
+Make sure the FastAPI server is running, then in a separete prompet on the root directory write:
 ```bash
-python run_tests.py
+ python -m tests.run_tests
 ```
 
 This will execute all test cases and provide a detailed report.
@@ -218,6 +219,12 @@ The FastAPI backend provides the following endpoints:
 | `/start_session` | POST | Start a new coaching session |
 | `/send_message` | POST | Send a message during a coaching session |
 | `/session_action` | POST | Perform an action in a session |
+
+You can always see them all when visiting 
+```bash
+http://localhost:8000/redoc
+
+```
 
 ## Project Structure
 
