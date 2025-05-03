@@ -1,12 +1,38 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.env
-.venv
+.Python
 env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
 venv/
 ENV/
-feedback_data/
+
+# dotenv
+.env
+
+# IDE specific files
 .idea/
 .vscode/
+*.swp
+*.swo
+
+# API keys and secrets
+*.pem
+*.key
